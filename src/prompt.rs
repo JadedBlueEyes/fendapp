@@ -38,8 +38,9 @@ pub fn Prompt(cx: Scope) -> Element {
     );
 
     render!(
-            rect {
-                padding: "0 24 24 24",
+        rect {
+            padding: "0 24 24 24",
+            onkeydown: |e| println!("Event: {e:?}"),
             Input {
                 mode: InputMode::Shown,
                 value: prompt.read().clone(),
@@ -47,16 +48,16 @@ pub fn Prompt(cx: Scope) -> Element {
                 onchange: |e| {
                     prompt.set(e)
                 },
-                // onkeydown: |e| println!("Event: {e:?}")
-            },
+                theme: InputThemeWith {
+                    width: Some("100%".into()),
+                    ..Default::default()
+                }
 
+            },
             label {
                 color: "white",
                 "{preview.get_main_result()}"
             }
-            
-
-
-    },
+        },
     )
 }

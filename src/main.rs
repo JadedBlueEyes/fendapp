@@ -17,7 +17,6 @@ fn main() {
     launch(app);
 }
 
-
 pub type History = im_rc::HashMap<u32, HistoryItem>;
 
 #[derive(Debug, PartialEq)]
@@ -28,7 +27,6 @@ pub struct HistoryItem {
 }
 
 fn app(cx: Scope) -> Element {
-
     let history = use_ref(cx, History::default);
 
     render!(
