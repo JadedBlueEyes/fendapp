@@ -9,3 +9,4 @@ edition = "2021"
 freya = { path = "../freya/crates/freya" }
 dioxus = { version = "0.4", features = ["macro", "hooks"], default-features = false }
 fend-core = "1.4.1"
+im-rc = "15.1.0"
