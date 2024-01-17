@@ -1,0 +1,11 @@
+[package]
+name = "fend-freya"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+freya = { path = "../freya/crates/freya" }
+dioxus = { version = "0.4", features = ["macro", "hooks"], default-features = false }
+fend-core = "1.4.1"
