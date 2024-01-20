@@ -3,25 +3,22 @@
     windows_subsystem = "windows"
 )]
 
-use freya::{hotreload::FreyaCtx, prelude::*};
-
-use dioxus::{hooks::*, prelude::GlobalAttributes};
+use freya::prelude::*;
 
 use crate::prompt::Prompt;
 
 mod prompt;
+mod timeout;
 
 fn main() {
-    dioxus_hot_reload::hot_reload_init!(Config::<FreyaCtx>::default());
-
     launch(app);
 }
 
-pub type History = im_rc::HashMap<u32, HistoryItem>;
+pub type History = Vec<HistoryItem>;
 
 #[derive(Debug, PartialEq)]
 pub struct HistoryItem {
-    pub id: u32,
+    // pub id: u32,
     pub expression: String,
     pub result: fend_core::FendResult,
 }
@@ -29,8 +26,28 @@ pub struct HistoryItem {
 fn app(cx: Scope) -> Element {
     let history = use_ref(cx, History::default);
 
-    render!(
+    let context = use_ref(cx, || fend_core::Context::new());
 
+    let execute_prompt = move |data: prompt::SubmitData| {
+        let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640 as u128);
+        let res = fend_core::evaluate_with_interrupt(
+            &data.prompt,
+            &mut context.read().clone(),
+            &interrupt,
+        );
+        if let Ok(res) = res {
+            history.with_mut(|h| {
+                h.push(HistoryItem {
+                    expression: data.prompt,
+                    result: res,
+                })
+            })
+        } else if let Err(e) = res {
+            println!("{e}")
+        }
+    };
+
+    render!(
         ThemeProvider {
             theme: DARK_THEME,
             rect {
@@ -42,15 +59,24 @@ fn app(cx: Scope) -> Element {
                     direction: "vertical",
                     rect {
                         padding: "24 50 0 50",
-                        history.read().iter().map(|(k, v)| rsx!(label {
-                            key: "{k}",
-                            height: "80",
-                            color: "white",
-                            "Number {k}: {v.result.get_main_result()}"
-                        }
+                        history.read().iter().enumerate().map(|(k, v)| rsx!(
+                            rect {
+                                key: "{k}",
+                                label {
+                                    color: "white", 
+                                    "{v.result.get_main_result()}"
+                                },
+                                label {
+                                    color: "white", 
+                                    "{v.expression}"
+                                }
+                            }
                         ))
+                    },
+                    Prompt {
+                        context: context,
+                        on_submit: execute_prompt,
                     }
-                    Prompt {}
                 } }
         },
     )
