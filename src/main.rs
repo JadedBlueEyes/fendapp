@@ -64,11 +64,11 @@ fn app(cx: Scope) -> Element {
                                 key: "{k}",
                                 label {
                                     color: "white", 
-                                    "{v.result.get_main_result()}"
+                                    "{v.expression}"
                                 },
                                 label {
                                     color: "white", 
-                                    "{v.expression}"
+                                    "= {v.result.get_main_result()}"
                                 }
                             }
                         ))
