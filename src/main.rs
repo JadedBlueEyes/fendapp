@@ -63,11 +63,11 @@ fn app(cx: Scope) -> Element {
                             rect {
                                 key: "{k}",
                                 label {
-                                    color: "white", 
+                                    color: "white",
                                     "{v.expression}"
                                 },
                                 label {
-                                    color: "white", 
+                                    color: "white",
                                     "= {v.result.get_main_result()}"
                                 }
                             }

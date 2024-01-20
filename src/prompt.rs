@@ -11,13 +11,12 @@ pub(crate) struct PromptProps<'a> {
 
 #[derive(Debug)]
 pub(crate) struct SubmitData {
-    pub prompt: String
+    pub prompt: String,
 }
 
 #[allow(non_snake_case)]
 pub(crate) fn Prompt<'a>(cx: Scope<'a, PromptProps<'a>>) -> Element {
     let prompt = use_ref(cx, || String::new());
-    
 
     let preview = use_memo(cx, (prompt,), |(prompt,)| {
         let interrupt = TimeoutInterrupt::new_with_timeout(32 as u128);
