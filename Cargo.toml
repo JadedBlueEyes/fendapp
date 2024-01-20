@@ -16,3 +16,19 @@ git = "https://github.com/marc2332/freya.git"
 # features = ["devtools"]
 # path = "../freya/crates/freya"
 # version = "0.1.8"
+
+[dependencies.skia-safe]
+
+version = "0.67.0"
+
+# https://github.com/rust-skia/rust-skia/blob/master/skia-bindings/README.md#prebuilt-binaries-in-an-offline-environment
+
+[target.'cfg( target_os = "linux" )'.dependencies.skia-safe]
+
+version = "0.67.0"
+features = ["all-linux", "use-system-jpeg-turbo"] 
+
+
+[target.'cfg( target_os = "windows" )'.dependencies.skia-safe]
+version = "0.67.0"
+features = ["all-windows"] 
