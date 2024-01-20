@@ -1,12 +1,18 @@
 [package]
-name = "fend-freya"
+name = "fendapp"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-freya = { path = "../freya/crates/freya" }
 dioxus = { version = "0.4", features = ["macro", "hooks"], default-features = false }
 fend-core = "1.4.1"
 im-rc = "15.1.0"
+
+[dependencies.freya]
+
+git = "https://github.com/marc2332/freya.git"
+# features = ["devtools"]
+# path = "../freya/crates/freya"
+# version = "0.1.8"
