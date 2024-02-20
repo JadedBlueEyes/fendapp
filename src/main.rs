@@ -32,7 +32,7 @@ fn app(cx: Scope) -> Element {
         let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640 as u128);
         let res = fend_core::evaluate_with_interrupt(
             &data.prompt,
-            &mut context.read().clone(),
+            &mut context.read(),
             &interrupt,
         );
         if let Ok(res) = res {

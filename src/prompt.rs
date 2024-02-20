@@ -22,7 +22,7 @@ pub(crate) fn Prompt<'a>(cx: Scope<'a, PromptProps<'a>>) -> Element {
         let interrupt = TimeoutInterrupt::new_with_timeout(32 as u128);
         fend_core::evaluate_preview_with_interrupt(
             &*prompt.read(),
-            &mut cx.props.context.read().clone(),
+            &mut cx.props.context.read(),
             &interrupt,
         )
     });
