@@ -6,6 +6,19 @@ repository = "https://github.com/JadedBlueEyes/fendapp/"
 authors = ["Jade Ellis <jade@ellis.link>"]
 description = "A native calculator with advanced features"
 
+
+[package.metadata.packager]
+before-packaging-command = "cargo build --release"
+product-name = "FendApp"
+identifier = "link.ellis.jade.fendapp"
+icons = [
+  "icon.png",
+  "icon.ico"
+]
+
+[package.metadata.winresource]
+ProductName = "FendApp"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
@@ -40,3 +53,7 @@ git = "https://github.com/marc2332/freya.git"
 # [target.'cfg( target_os = "windows" )'.dependencies.skia-safe]
 # version = "0.67.0"
 # features = ["all-windows"] 
+
+
+[build-dependencies]
+winresource = "0.1"

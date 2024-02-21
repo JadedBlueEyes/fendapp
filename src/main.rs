@@ -14,8 +14,15 @@ use crate::prompt::Prompt;
 mod prompt;
 mod timeout;
 
+const ICON: &[u8] = include_bytes!("../assets/icon.png");
 fn main() {
-    launch(app);
+    launch_cfg(
+        app,
+        LaunchConfig::<()>::builder()
+            .with_title("FendApp")
+            .with_icon(LaunchConfig::load_icon(ICON))
+            .build(),
+    )
 }
 
 pub type History = Vec<HistoryItem>;
