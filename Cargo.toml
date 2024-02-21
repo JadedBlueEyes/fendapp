@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 repository = "https://github.com/JadedBlueEyes/fendapp/"
 authors = ["Jade Ellis <jade@ellis.link>"]
-description = "A native calculator with advanced features"
+# description = "A native calculator with advanced features"
 
 
 [package.metadata.packager]
@@ -15,6 +15,11 @@ icons = [
   "icon.png",
   "icon.ico"
 ]
+category = "Utility"
+
+[package.metadata.packager.windows]
+
+digest-algorithim = "SHA-256"
 
 [package.metadata.winresource]
 ProductName = "FendApp"
