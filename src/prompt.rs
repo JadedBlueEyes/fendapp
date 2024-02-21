@@ -1,13 +1,17 @@
 use fend_core::Context;
 use freya::prelude::*;
+// use dioxus::prelude::{ UseRef, use_ref,  Scope };
+
+use dioxus_hooks::{use_memo, use_signal};
+use dioxus_signals::{Readable, Signal, Writable};
 
 use crate::timeout::TimeoutInterrupt;
 
-#[derive(Props)]
-pub(crate) struct PromptProps<'a> {
-    context: &'a UseRef<Context>,
-    on_submit: EventHandler<'a, SubmitData>,
-}
+// #[derive(Props, Clone, PartialEq)]
+// pub(crate) struct PromptProps {
+//
+
+// }
 
 #[derive(Debug)]
 pub(crate) struct SubmitData {
@@ -15,24 +19,22 @@ pub(crate) struct SubmitData {
 }
 
 #[allow(non_snake_case)]
-pub(crate) fn Prompt<'a>(cx: Scope<'a, PromptProps<'a>>) -> Element {
-    let prompt = use_ref(cx, || String::new());
+#[component]
+pub(crate) fn Prompt(on_submit: EventHandler<SubmitData>, mut context: Signal<Context>) -> Element {
+    let mut prompt = use_signal(String::new);
 
-    let preview = use_memo(cx, (prompt,), |(prompt,)| {
-        let interrupt = TimeoutInterrupt::new_with_timeout(32 as u128);
-        fend_core::evaluate_preview_with_interrupt(
-            &*prompt.read(),
-            &mut cx.props.context.read(),
-            &interrupt,
-        )
+    let preview = use_memo(move || {
+        let interrupt = TimeoutInterrupt::new_with_timeout(32_u128);
+        context
+            .with_mut(|c| fend_core::evaluate_preview_with_interrupt(&prompt.read(), c, &interrupt))
     });
 
-    render!(
+    rsx!(
         rect {
             padding: "0 24 24 24",
-            onkeydown: |e| {
+            onkeydown: move |e| {
                 if e.data.key == keyboard::Key::Enter {
-                    cx.props.on_submit.call(SubmitData {
+                    on_submit.call(SubmitData {
                         prompt: prompt.read().to_string()
                     });
                     prompt.set(String::new());
@@ -42,7 +44,7 @@ pub(crate) fn Prompt<'a>(cx: Scope<'a, PromptProps<'a>>) -> Element {
                 mode: InputMode::Shown,
                 value: prompt.read().clone(),
                 // width: "100%",
-                onchange: |e| {
+                onchange: move |e| {
                     prompt.set(e)
                 },
                 theme: InputThemeWith {
@@ -53,7 +55,7 @@ pub(crate) fn Prompt<'a>(cx: Scope<'a, PromptProps<'a>>) -> Element {
             },
             label {
                 color: "white",
-                "{preview.get_main_result()}"
+                "{preview.read().get_main_result()}"
             }
         },
     )

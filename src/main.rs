@@ -4,6 +4,10 @@
 )]
 
 use freya::prelude::*;
+// use dioxus::prelude::{ UseRef, use_ref,  Scope };
+
+use dioxus_hooks::use_signal;
+use dioxus_signals::{Readable, Writable};
 
 use crate::prompt::Prompt;
 
@@ -23,18 +27,15 @@ pub struct HistoryItem {
     pub result: fend_core::FendResult,
 }
 
-fn app(cx: Scope) -> Element {
-    let history = use_ref(cx, History::default);
+fn app() -> Element {
+    let mut history = use_signal(History::default);
 
-    let context = use_ref(cx, || fend_core::Context::new());
+    let mut context = use_signal(fend_core::Context::new);
 
     let execute_prompt = move |data: prompt::SubmitData| {
-        let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640 as u128);
-        let res = fend_core::evaluate_with_interrupt(
-            &data.prompt,
-            &mut context.read(),
-            &interrupt,
-        );
+        let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640_u128);
+        let res =
+            context.with_mut(|c| fend_core::evaluate_with_interrupt(&data.prompt, c, &interrupt));
         if let Ok(res) = res {
             history.with_mut(|h| {
                 h.push(HistoryItem {
@@ -47,7 +48,7 @@ fn app(cx: Scope) -> Element {
         }
     };
 
-    render!(
+    rsx!(
         ThemeProvider {
             theme: DARK_THEME,
             rect {
@@ -59,7 +60,8 @@ fn app(cx: Scope) -> Element {
                     direction: "vertical",
                     rect {
                         padding: "24 50 0 50",
-                        history.read().iter().enumerate().map(|(k, v)| rsx!(
+                        {
+                            history.read().iter().enumerate().map(|(k, v)| rsx!{
                             rect {
                                 key: "{k}",
                                 label {
@@ -69,14 +71,15 @@ fn app(cx: Scope) -> Element {
                                 label {
                                     color: "white",
                                     "= {v.result.get_main_result()}"
-                                }
-                            }
-                        ))
+                                },
+                            },
+                        })
+                    },
                     },
                     Prompt {
                         context: context,
                         on_submit: execute_prompt,
-                    }
+                    },
                 } }
         },
     )
