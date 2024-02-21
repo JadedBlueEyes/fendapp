@@ -2,6 +2,9 @@
 name = "fendapp"
 version = "0.1.0"
 edition = "2021"
+repository = "https://github.com/JadedBlueEyes/fendapp/"
+authors = ["Jade Ellis <jade@ellis.link>"]
+description = "A native calculator with advanced features"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
