@@ -27,11 +27,13 @@ ProductName = "FendApp"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dioxus = { git = "https://github.com/DioxusLabs/dioxus", rev = "a454f2c7ac239933bb4d5cd184c8a549190070f1", features = ["macro", "hooks", "signals"], default-features = false }
 
 
-dioxus-hooks = { git = "https://github.com/DioxusLabs/dioxus", rev = "a454f2c7ac239933bb4d5cd184c8a549190070f1" }
-dioxus-signals = { git = "https://github.com/DioxusLabs/dioxus", rev = "a454f2c7ac239933bb4d5cd184c8a549190070f1" }
+
+dioxus = { version = "0.5", default-features = false, features = ["macro", "signals", "hooks"]}
+
+dioxus-hooks = { version = "0.5" }
+dioxus-signals = { version = "0.5" }
 
 fend-core = "1.4.1"
 im-rc = "15.1.0"
