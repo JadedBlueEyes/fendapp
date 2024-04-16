@@ -8,6 +8,8 @@ on:
 jobs:
   publish:
     name: Publish for ${{ matrix.os }}
+    permissions:
+        contents: write
     
     runs-on: ${{ matrix.os }}
     strategy:
@@ -34,7 +36,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
+          overwrite: true
           file_glob: true
           file: target/release/fendapp_*
-          overwrite: true
           tag: ${{ github.ref }}
