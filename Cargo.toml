@@ -12,8 +12,9 @@ before-packaging-command = "cargo build --release"
 product-name = "FendApp"
 identifier = "link.ellis.jade.fendapp"
 icons = [
-  "icon.png",
-  "icon.ico"
+  "assets/icon.png",
+  "assets/icon-32x32.png",
+  "assets/icon.ico"
 ]
 category = "Utility"
 
