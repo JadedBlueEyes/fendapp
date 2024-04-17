@@ -1,0 +1,11 @@
+allow-branch = ["main"]
+
+pre-release-replacements = [
+  {file="CHANGELOG.md", search="Unreleased changes(:\\s*[\\w\\s]+)?", replace="[{{version}}]$1 - {{date}}"},
+  {file="CHANGELOG.md", search="...Unreleased]", replace="...{{tag_name}}]"},
+  {file="CHANGELOG.md", search="\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly=1},
+  {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}", min=0},
+  {file="CHANGELOG.md", search="<!-- next-header -->", replace="<!-- next-header -->\n\n## Unreleased changes\n\nFull Changelog: [{{tag_name}}...Unreleased]", exactly=1},
+  {file="CHANGELOG.md", search="<!-- next-release-url -->", replace="<!-- next-release-url -->\n[{{version}}]: https://github.com/JadedBlueEyes/fendapp/releases/tag/{{tag_name}}", exactly=1},
+  {file="CHANGELOG.md", search="<!-- next-compare-url -->", replace="<!-- next-compare-url -->\n[{{tag_name}}...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/{{tag_name}}...HEAD", exactly=1},
+]
