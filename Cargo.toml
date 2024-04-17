@@ -18,6 +18,15 @@ icons = [
 ]
 category = "Utility"
 
+[package.metadata.packager.deb.files]
+"assets/link.ellis.jade.fendapp.metainfo.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.metainfo.xml"
+
+[package.metadata.packager.pacman.files]
+"assets/link.ellis.jade.fendapp.metainfo.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.metainfo.xml"
+
+[package.metadata.packager.appimage.files]
+"assets/link.ellis.jade.fendapp.metainfo.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.metainfo.xml"
+
 [package.metadata.packager.windows]
 
 digest-algorithim = "SHA-256"

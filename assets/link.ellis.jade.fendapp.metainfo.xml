@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>link.ellis.jade.fendapp</id>
+  
+  <name>FendApp</name>
+  <summary>An arbitrary-precision unit-aware calculator app.</summary>
+  
+  <metadata_license>CC-BY-4.0</metadata_license>
+  <project_license>MIT</project_license>
+  
+  <description>
+    <p>
+      FendApp is an arbitrary-precision unit-aware calculator.
+    </p>
+    <p>
+      Features:
+    </p>
+    <p>
+      <ul>
+        <li>Convert between hundreds of built-in units</li>
+        <li>Automatically use the correct derived unit (for example, 8m * 8m = 64m^2)</li>
+        <li>Arbitrary-precision arithmetic using rational numbers</li>
+        <li>Full support for complex numbers</li>
+        <li>Variables</li>
+        <li>Binary, octal, hexadecimal and all other bases between 2 and 36</li>
+        <li>Keep track of units, with support for SI, US and UK customary and many historical units</li>
+        <li>Trigonometric functions</li>
+        <li>Lambda calculus</li>
+      </ul>
+    </description>
+    
+    <launchable type="desktop-id">link.ellis.jade.fendapp.desktop</launchable>
+    <screenshots>
+      <screenshot type="default">
+        <image>https://github.com/JadedBlueEyes/fendapp/assets/28905212/b794334d-4b95-40d7-ba97-8c1187537b65</image>
+      </screenshot>
+    </screenshots>
+  </component>
