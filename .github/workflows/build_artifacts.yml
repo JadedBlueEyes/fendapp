@@ -3,6 +3,11 @@ name: Build Artifacts
 on:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD:
+        required: true
+      CARGO_PACKAGER_SIGN_PRIVATE_KEY:
+        required: true
 
 
 env:
@@ -18,7 +23,6 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
 
     permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable

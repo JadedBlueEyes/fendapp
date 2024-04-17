@@ -12,9 +12,6 @@ on:
         default: true
         type: boolean
 
-permissions:
-  contents: write
-
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
