@@ -4,40 +4,53 @@ on:
   push:
     tags:
       - "*.*.*"
+  workflow_dispatch:
+    inputs:
+      is_nightly:
+        description: "Is nightly"
+        required: false
+        default: true
+        type: boolean
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  CARGO_TERM_COLOR: always
 
 jobs:
+  upload-artifacts:
+    uses: ./.github/workflows/build_artifacts.yml
+
   publish:
-    name: Publish for ${{ matrix.os }}
+    needs: upload-artifacts
+    runs-on: ubuntu-latest
+
+    env:
+      GH_REPO: ${{ github.repository }}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     permissions:
-        contents: write
-    
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+      contents: write
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
-      - name: Install linux dependencies
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt update && sudo apt install build-essential libssl-dev pkg-config libglib2.0-dev libgtk-3-dev
-      - uses: taiki-e/cache-cargo-install-action@v1 # taiki-e/install-action@v2
+    #   - uses: actions/checkout@v4
+    #     with:
+    #       # https://github.com/actions/checkout/issues/1471
+    #       fetch-tags: false
+      - uses: actions/download-artifact@v4
         with:
-          tool: cargo-packager
-      - name: Build binaries
-        env:
-            CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD }}
-            CARGO_PACKAGER_SIGN_PRIVATE_KEY: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY }}
-        run: cargo packager --release --formats all -vvv
+          path: release-artifacts
+          merge-multiple: true
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
+          prerelease: ${{ github.event.inputs.is_nightly }}
           overwrite: true
           file_glob: true
-          file: target/release/fendapp_*
+          file: release-artifacts/*
           tag: ${{ github.ref }}
