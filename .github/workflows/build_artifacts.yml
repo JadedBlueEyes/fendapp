@@ -26,6 +26,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
+      - uses: hustcer/setup-nu@v3.9
+        with:
+          version: "0.92.2"
       - uses: Swatinem/rust-cache@v2
         with:
           cache-on-failure: true
@@ -40,9 +43,12 @@ jobs:
         env:
             CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD }}
             CARGO_PACKAGER_SIGN_PRIVATE_KEY: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY }}
-        run: cargo packager --release --formats all -vvv
+        run: nu scripts/build_release_artifacts.nu artifacts
         
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }}-release
-          path: target/release/fendapp_*
+          path: | 
+            artifacts/
+            !artifacts/.*
+        

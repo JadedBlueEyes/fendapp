@@ -8,7 +8,7 @@ authors = ["Jade Ellis <jade@ellis.link>"]
 
 
 [package.metadata.packager]
-before-packaging-command = "cargo build --release"
+
 product-name = "FendApp"
 identifier = "link.ellis.jade.fendapp"
 icons = [

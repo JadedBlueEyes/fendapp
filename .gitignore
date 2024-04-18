@@ -1,4 +1,6 @@
 /target
+/artifacts
+
 
 /flatpak-build-dir
 /flatpak-builder-tools
