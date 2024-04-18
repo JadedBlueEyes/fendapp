@@ -77,3 +77,7 @@ git = "https://github.com/marc2332/freya.git"
 
 [build-dependencies]
 winresource = "0.1"
+
+[profile.release]
+lto = true
+codegen-units = 1

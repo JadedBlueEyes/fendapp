@@ -2,6 +2,7 @@
 
 ## Unreleased changes
 
+- More optimized binaries 
 - Add AppStream metadata
 - More download options available
 
