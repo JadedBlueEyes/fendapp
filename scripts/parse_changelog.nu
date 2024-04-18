@@ -9,7 +9,7 @@ export def parse_changelog_html [html_content: string] {
         let version = $e | parse -r "<h2>\\s*<a[^>]*>(?P<version>.*?)</a>" | get -i version | get -i 0 
         let date = $e | parse -r "- (?P<date>[\\d]{4}(-[\\d]{2}){2})" | get -i date | get -i 0 | default (date now | format date "%F")
         let release_url = $e | parse -r "<h2>\\s*<a\\s+href=\"(?P<release_url>[^\"]*)\"" | get -i release_url | get -i 0
-        let description = $e | parse -r '>(:\s*(?P<tagline>[\W\w]*?))?((\s*- (?P<date>[\d]{4}(-[\d]{2}){2}))|(Unreleased changes))<\/h2>\s*(?P<body>[\W\w]*)' | each { |d| $"<p>($version | default $unreleased_version | default 'Unreleased changes' )(if ($d.tagline | str trim) != "" { ': ' | append $d.tagline | str join '' } else {''} )</p>($d.body | str replace -r '<p\s*>\s*Full Changelog:([\W\w]*?)([\W\w]*?)<\/p>' '')" } | get -i 0
+        let description = $e | parse -r '(a>|(h2>Unreleased changes))(:\s*(?P<tagline>[\W\w]*?))?(\s*- (?P<date>[\d]{4}(-[\d]{2}){2}))?<\/h2>\s*(?P<body>[\W\w]*)' | each { |d| $"<p>($version | default $unreleased_version | default 'Unreleased changes' )(if ($d.tagline | str trim) != "" { ': ' | append $d.tagline | str join '' } else {''} )</p>($d.body | str replace -r '<p\s*>\s*Full Changelog:([\W\w]*?)([\W\w]*?)<\/p>' '')" } | get -i 0
 
         # Print the extracted information
         {version: ($version | default $unreleased_version | default "Unreleased") date: $date release_url: ($release_url | default $unreleased_url) description: $description}
