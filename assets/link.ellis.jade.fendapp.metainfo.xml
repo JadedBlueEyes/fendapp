@@ -3,12 +3,24 @@
   <id>link.ellis.jade.fendapp</id>
 
   <name>FendApp</name>
-  <summary>An arbitrary-precision unit-aware calculator app</summary>
+  <summary>A unit-aware calculator app</summary>
+
+  <developer id="link.ellis.jade">
+    <name>Developer name</name>
+  </developer>
 
   <metadata_license>CC-BY-4.0</metadata_license>
   <project_license>MIT</project_license>
   <content_rating type="oars-1.1" />
+  <url type="homepage">https://github.com/JadedBlueEyes/fendapp</url>
+  <url type="bugtracker">https://github.com/JadedBlueEyes/fendapp/issues</url>
+  <!-- <url type="donation">https://example.org/donate</url>
+  <url type="contact">https://example.org/contact</url>
+  <url type="faq">https://example.org/faq</url>
+  <url type="translate">https://example.org/translate</url> -->
+  <url type="vcs-browser">https://github.com/JadedBlueEyes/fendapp</url>
 
+  <releases type="external" /> 
   <description>
     <p>
     FendApp is a calculator for unit aware calculatons across a wide range of domains. It offers a range of features, including the ability to convert between hundreds of built-in units effortlessly. 
@@ -22,6 +34,7 @@
     <screenshots>
       <screenshot type="default">
         <image>https://github.com/JadedBlueEyes/fendapp/assets/28905212/b794334d-4b95-40d7-ba97-8c1187537b65</image>
+        <caption>Some calculations inside the app</caption>
       </screenshot>
     </screenshots>
   </component>

@@ -20,12 +20,15 @@ category = "Utility"
 
 [package.metadata.packager.deb.files]
 "assets/link.ellis.jade.fendapp.metainfo.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.metainfo.xml"
+"assets/link.ellis.jade.fendapp.releases.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.releases.xml"
 
 [package.metadata.packager.pacman.files]
 "assets/link.ellis.jade.fendapp.metainfo.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.metainfo.xml"
+"assets/link.ellis.jade.fendapp.releases.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.releases.xml"
 
 [package.metadata.packager.appimage.files]
 "assets/link.ellis.jade.fendapp.metainfo.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.metainfo.xml"
+"assets/link.ellis.jade.fendapp.releases.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.releases.xml"
 
 [package.metadata.packager.windows]
 

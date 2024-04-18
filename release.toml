@@ -9,3 +9,5 @@ pre-release-replacements = [
   {file="CHANGELOG.md", search="<!-- next-release-url -->", replace="<!-- next-release-url -->\n[{{version}}]: https://github.com/JadedBlueEyes/fendapp/releases/tag/{{tag_name}}", exactly=1},
   {file="CHANGELOG.md", search="<!-- next-compare-url -->", replace="<!-- next-compare-url -->\n[{{tag_name}}...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/{{tag_name}}...HEAD", exactly=1},
 ]
+
+pre-release-hook = ["nu", "scripts/write_appstream_releases.nu"]
