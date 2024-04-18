@@ -1,8 +1,16 @@
 <releases>
-  <release version="Unreleased" date="2024-04-18"><description>
-      <p>Unreleased changes: Release tweaks</p>
+  <release version="0.1.4" date="2024-04-18">
+    <url type="details">https://github.com/JadedBlueEyes/fendapp/releases/tag/0.1.4</url>
+    <description>
+      <p>0.1.4</p>
+</description>
+  </release>
+  <release version="0.1.4" date="2024-04-18">
+    <url type="details">https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.4</url>
+    <description>
+      <p>0.1.4: Release tweaks</p>
       <ul>
-<li>More optimized binaries</li>
+<li>2024-04-18- More optimized binaries</li>
 <li>Add AppStream metadata</li>
 <li>More download options available</li>
 </ul>
