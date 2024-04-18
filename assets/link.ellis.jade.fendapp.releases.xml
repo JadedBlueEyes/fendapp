@@ -2,7 +2,9 @@
   <release version="Unreleased" date="2024-04-18"><description>
       <p>Unreleased changes</p>
       <ul>
+<li>More optimized binaries</li>
 <li>Add AppStream metadata</li>
+<li>More download options available</li>
 </ul>
 
 </description>
