@@ -74,10 +74,10 @@ git = "https://github.com/marc2332/freya.git"
 # version = "0.67.0"
 # features = ["all-windows"] 
 
-
-[build-dependencies]
+[target.'cfg( target_os = "windows" )'.build-dependencies]
 winresource = "0.1"
 
 [profile.release]
 lto = true
 codegen-units = 1
+
