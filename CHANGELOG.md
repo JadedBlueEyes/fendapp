@@ -1,6 +1,6 @@
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Release tweaks
 
 - More optimized binaries 
 - Add AppStream metadata
