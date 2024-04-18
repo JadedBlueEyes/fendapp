@@ -41,6 +41,6 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.1.3...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1...3.HEAD
+[v0.1.3...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.3...HEAD
 [v0.1.3...v0.1.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.3...v0.1.4
 [v0.1.0...v0.1.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.0...v0.1.3
