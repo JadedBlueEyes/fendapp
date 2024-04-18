@@ -15,7 +15,7 @@ Previously:
 
 Full Changelog: [v0.1.3...v0.1.5]
 
-## [0.1.4]: Release tweaks
+## [0.1.4]: Release tweaks - 2024-04-18
 
 - More optimized binaries 
 - Add AppStream metadata
