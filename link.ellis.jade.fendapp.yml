@@ -53,9 +53,9 @@ modules:
         filename: fendapp_x86_64.tar.gz
         only-arches:
           - x86_64
-        # path: fendapp_0.1.3_x86_64.tar.gz
+        # path: fendapp_0.1.5_x86_64.tar.gz
         url: >-
-         https://github.com/JadedBlueEyes/fendapp/releases/download/v0.1.3/fendapp_0.1.3_x86_64.tar.gz
-        sha256: 75883b360af643d78f564ece076a3274852d44576fc71ad87abd18fb206ef10c
-        size: 14921530
+         https://github.com/JadedBlueEyes/fendapp/releases/download/v0.1.5/fendapp_0.1.5_x86_64.tar.gz
+        sha256: 194ce9e47069efc698cfcae2d78b908e5797b98aa13b5c86c3e9562b8f196e43
+        size: 13500874
 
