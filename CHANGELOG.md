@@ -1,12 +1,20 @@
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Changelog fix
 
-Full Changelog: [v0.1.4...Unreleased]
+
+- Fix changelog generation
+
+Previously:
+- More optimized binaries 
+- More download options available
+- Add AppStream metadata
+
+Full Changelog: [v0.1.3...Unreleased]
 
 ## [0.1.4]: Release tweaks
 
- - 2024-04-18- More optimized binaries 
+- More optimized binaries 
 - Add AppStream metadata
 - More download options available
 
@@ -33,6 +41,6 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.1.4...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.4...HEAD
+[v0.1.3...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1...3.HEAD
 [v0.1.3...v0.1.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.3...v0.1.4
 [v0.1.0...v0.1.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.0...v0.1.3

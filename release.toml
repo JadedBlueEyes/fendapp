@@ -1,7 +1,7 @@
 allow-branch = ["main"]
 
 pre-release-replacements = [
-  {file="CHANGELOG.md", search="Unreleased changes(:\\s*[\\w\\s]+)?", replace="[{{version}}]$1 - {{date}}"},
+  {file="CHANGELOG.md", search="Unreleased changes(:\\s*[\\w\\s]+?)?\n", replace="[{{version}}]$1 - {{date}}"},
   {file="CHANGELOG.md", search="...Unreleased]", replace="...{{tag_name}}]"},
   {file="CHANGELOG.md", search="\\.\\.\\.HEAD", replace="...{{tag_name}}", exactly=1},
   {file="CHANGELOG.md", search="ReleaseDate", replace="{{date}}", min=0},
