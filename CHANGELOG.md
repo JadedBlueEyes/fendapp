@@ -3,6 +3,7 @@
 ## Unreleased changes
 
 - Add AppStream metadata
+- More download options available
 
 Full Changelog: [v0.1.3...Unreleased]
 
