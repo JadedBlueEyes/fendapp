@@ -5,18 +5,28 @@ edition = "2021"
 repository = "https://github.com/JadedBlueEyes/fendapp/"
 authors = ["Jade Ellis <jade@ellis.link>"]
 # description = "A native calculator with advanced features"
-
+license = "MIT"
 
 [package.metadata.packager]
 
 product-name = "FendApp"
 identifier = "link.ellis.jade.fendapp"
+category = "Utility"
+
+homepage = "https://github.com/JadedBlueEyes/fendapp"
+description = "Unit-aware calculator"
+long-description = "Fendapp is an arbitrary-precision unit-aware calculator app."
+
+copyright = "Copyright (c) Jade Ellis"
+license-file = "LICENCE"
+
+
 icons = [
+  "assets/icon.svg",
   "assets/icon.png",
   "assets/icon-32x32.png",
   "assets/icon.ico"
 ]
-category = "Utility"
 
 [package.metadata.packager.deb.files]
 "assets/link.ellis.jade.fendapp.metainfo.xml" = "/usr/share/metainfo/link.ellis.jade.fendapp.metainfo.xml"

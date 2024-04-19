@@ -2,6 +2,8 @@
 
 ## Unreleased changes
 
+- Added more metadata to app builds
+
 Full Changelog: [v0.1.5...Unreleased]
 
 ## [0.1.5]: Changelog fix - 2024-04-18
