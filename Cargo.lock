@@ -1515,7 +1515,7 @@ checksum = "2643d80801233a514eac994754db012cb0f51a267dc7c0b92e8b02e50f18f932"
 
 [[package]]
 name = "fendapp"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "dioxus",
  "dioxus-hooks",

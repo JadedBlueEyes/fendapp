@@ -1,10 +1,14 @@
 <!-- next-header -->
 
-## Unreleased changes: Mac arm builds
+## Unreleased changes
+
+Full Changelog: [v0.3.1...Unreleased]
+
+## [0.3.1]: Mac arm builds - 2024-04-28
 
 - Build arm binaries for macOS
 
-Full Changelog: [v0.3.0...Unreleased]
+Full Changelog: [v0.3.0...v0.3.1]
 
 ## [0.3.0]: Release build fix - 2024-04-28
 
@@ -54,6 +58,7 @@ This is the minimal working app, without many convenience features.
 
 
 <!-- next-release-url -->
+[0.3.1]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.3.1
 [0.3.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.3.0
 [0.2.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.2.0
 [0.1.5]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.5
@@ -62,7 +67,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.3.0...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.3.0...HEAD
+[v0.3.1...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.3.1...HEAD
+[v0.3.0...v0.3.1]: https://github.com/JadedBlueEyes/fendapp/compare/v0.3.0...v0.3.1
 [v0.2.0...v0.3.0]: https://github.com/JadedBlueEyes/fendapp/compare/v0.2.0...v0.3.0
 [v0.1.5...v0.2.0]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.5...v0.2.0
 [v0.1.3...v0.1.5]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.3...v0.1.5
