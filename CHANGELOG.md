@@ -2,15 +2,18 @@
 
 ## Unreleased changes
 
+- Build arm binaries for macOS
+
 Full Changelog: [v0.3.0...Unreleased]
 
-## [0.3.0]: Release build fix - 2024-04-28
+## [0.3.0]: Release build fix - 2024-04-28
+
 - Temporarily fix building MacOS release
 
 Full Changelog: [v0.2.0...v0.3.0]
 
-## [0.2.0]: Copy and paste
- - 2024-04-28
+## [0.2.0]: Copy and paste - 2024-04-28
+
 - Update to Freya 0.2, which allows copy and paste
 - Added more metadata to app builds
 
