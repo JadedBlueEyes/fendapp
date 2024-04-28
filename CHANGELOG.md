@@ -1,11 +1,14 @@
 <!-- next-header -->
 
-## Unreleased changes: Copy and paste
+## Unreleased changes
 
+Full Changelog: [v0.2.0...Unreleased]
+
+## [0.2.0]: Copy and paste - 2024-04-28
 - Update to Freya 0.2, which allows copy and paste
 - Added more metadata to app builds
 
-Full Changelog: [v0.1.5...Unreleased]
+Full Changelog: [v0.1.5...v0.2.0]
 
 ## [0.1.5]: Changelog fix - 2024-04-18
 
@@ -42,13 +45,15 @@ This is the minimal working app, without many convenience features.
 
 
 <!-- next-release-url -->
+[0.2.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.2.0
 [0.1.5]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.5
 [0.1.4]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.4
 [0.1.3]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.3
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.1.5...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.5...HEAD
+[v0.2.0...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.2.0...HEAD
+[v0.1.5...v0.2.0]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.5...v0.2.0
 [v0.1.3...v0.1.5]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.3...v0.1.5
 [v0.1.3...v0.1.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.3...v0.1.4
 [v0.1.0...v0.1.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.1.0...v0.1.3
