@@ -63,10 +63,10 @@ im-rc = "15.1.0"
 
 [dependencies.freya]
 
-git = "https://github.com/marc2332/freya.git"
+# git = "https://github.com/marc2332/freya.git"
 # features = ["devtools"]
 # path = "../freya/crates/freya"
-# version = "0.1.8"
+version = "0.2.0"
 
 # [dependencies.skia-safe]
 

@@ -2,6 +2,7 @@
 
 ## Unreleased changes
 
+- Update to Freya 0.2, which allows copy and paste
 - Added more metadata to app builds
 
 Full Changelog: [v0.1.5...Unreleased]
