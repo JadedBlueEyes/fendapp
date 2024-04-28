@@ -1,6 +1,8 @@
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: disable Mac builds
+
+- Disable macOS builds due to an issue in cargo-packager
 
 Full Changelog: [v0.3.1...Unreleased]
 
