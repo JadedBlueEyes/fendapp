@@ -1,6 +1,6 @@
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Mac arm builds
 
 - Build arm binaries for macOS
 
