@@ -20,13 +20,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-12] # Nushell isn't on macos ARM
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     permissions: {}
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - uses: hustcer/setup-nu@v3.9
+      - uses: hustcer/setup-nu@v3.10
         with:
           version: "0.92.2"
       - uses: Swatinem/rust-cache@v2
