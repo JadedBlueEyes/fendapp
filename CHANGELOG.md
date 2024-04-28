@@ -1,6 +1,6 @@
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Release build fix
 
 - Temporarily fix building MacOS release
 
