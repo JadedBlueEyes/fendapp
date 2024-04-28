@@ -1,6 +1,6 @@
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Copy and paste
 
 - Update to Freya 0.2, which allows copy and paste
 - Added more metadata to app builds
