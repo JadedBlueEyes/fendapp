@@ -1,6 +1,6 @@
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Currency conversion
 
 - Added support for currency conversion
 - Added support for using % as modulo operator
