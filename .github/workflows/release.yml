@@ -27,6 +27,7 @@ jobs:
       CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD }}
       CARGO_PACKAGER_SIGN_PRIVATE_KEY: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY }}
   publish:
+    if: '!cancelled()'
     needs: upload-artifacts
     runs-on: ubuntu-latest
 
