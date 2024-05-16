@@ -3,6 +3,9 @@
 ## Unreleased changes
 
 - Added support for currency conversion
+- Added support for using % as modulo operator
+- Added more units and constants
+- Improved performance
 
 Full Changelog: [v0.3.2...Unreleased]
 
