@@ -11,6 +11,8 @@ use dioxus_signals::{Readable, Writable};
 
 use crate::prompt::Prompt;
 
+mod exchange_rates;
+mod file_paths;
 mod prompt;
 mod timeout;
 
@@ -38,11 +40,18 @@ fn app() -> Element {
     let mut history = use_signal(History::default);
 
     let mut context = use_signal(fend_core::Context::new);
+    let exchange_rates = use_signal(|| exchange_rates::ExchangeRateHandler {
+        enable_internet_access: true,
+        source: exchange_rates::ExchangeRateSource::EuropeanUnion,
+    });
 
     let execute_prompt = move |data: prompt::SubmitData| {
         let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640_u128);
-        let res =
-            context.with_mut(|c| fend_core::evaluate_with_interrupt(&data.prompt, c, &interrupt));
+        let res = context.with_mut(|c| {
+            let rates = exchange_rates.read();
+            c.set_exchange_rate_handler_v1(*rates);
+            fend_core::evaluate_with_interrupt(&data.prompt, c, &interrupt)
+        });
         if let Ok(res) = res {
             history.with_mut(|h| {
                 h.push(HistoryItem {

@@ -59,7 +59,11 @@ dioxus-hooks = { version = "0.5" }
 dioxus-signals = { version = "0.5" }
 
 fend-core = "1.4.1"
+home = "0.5.9"
 im-rc = "15.1.0"
+ureq = { version = "2.9.7", default-features = false, optional = true }
+native-tls = { version = "0.2.11", optional = true }
+windows-sys = "0.52.0"
 
 [dependencies.freya]
 
@@ -86,6 +90,11 @@ version = "0.2.0"
 
 [target.'cfg( target_os = "windows" )'.build-dependencies]
 winresource = "0.1"
+
+[features]
+native-tls = [ "dep:ureq", "dep:native-tls", "ureq/native-tls" ]
+rustls = [ "dep:ureq", "ureq/tls" ]
+default = [ "native-tls" ]
 
 [profile.release]
 lto = true

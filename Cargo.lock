@@ -1522,7 +1522,11 @@ dependencies = [
  "dioxus-signals",
  "fend-core",
  "freya",
+ "home",
  "im-rc",
+ "native-tls",
+ "ureq",
+ "windows-sys 0.52.0",
  "winresource",
 ]
 
@@ -4442,6 +4446,7 @@ dependencies = [
  "base64 0.22.0",
  "flate2",
  "log",
+ "native-tls",
  "once_cell",
  "rustls",
  "rustls-pki-types",

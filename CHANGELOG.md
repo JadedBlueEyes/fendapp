@@ -2,6 +2,8 @@
 
 ## Unreleased changes
 
+- Added support for currency conversion
+
 Full Changelog: [v0.3.2...Unreleased]
 
 ## [0.3.2]: disable Mac builds - 2024-04-28
