@@ -39,19 +39,22 @@ pub struct HistoryItem {
 fn app() -> Element {
     let mut history = use_signal(History::default);
 
-    let mut context = use_signal(fend_core::Context::new);
     let exchange_rates = use_signal(|| exchange_rates::ExchangeRateHandler {
         enable_internet_access: true,
         source: exchange_rates::ExchangeRateSource::EuropeanUnion,
     });
 
+    let mut context = use_signal(fend_core::Context::new);
+    context.with_mut(|c| {
+        let rates = exchange_rates.read();
+        c.set_exchange_rate_handler_v1(*rates);
+        c.set_random_u32_fn(random_u32);
+    });
+
     let execute_prompt = move |data: prompt::SubmitData| {
         let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640_u128);
-        let res = context.with_mut(|c| {
-            let rates = exchange_rates.read();
-            c.set_exchange_rate_handler_v1(*rates);
-            fend_core::evaluate_with_interrupt(&data.prompt, c, &interrupt)
-        });
+        let res =
+            context.with_mut(|c| fend_core::evaluate_with_interrupt(&data.prompt, c, &interrupt));
         if let Ok(res) = res {
             history.with_mut(|h| {
                 h.push(HistoryItem {
@@ -99,4 +102,8 @@ fn app() -> Element {
                 } }
         },
     )
+}
+
+fn random_u32() -> u32 {
+    rand::random()
 }

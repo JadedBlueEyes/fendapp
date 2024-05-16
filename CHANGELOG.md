@@ -4,6 +4,7 @@
 
 - Added support for currency conversion
 - Added support for using % as modulo operator
+- Added support for random numbers
 - Added more units and constants
 - Improved performance
 

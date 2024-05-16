@@ -64,6 +64,7 @@ im-rc = "15.1.0"
 ureq = { version = "2.9.7", default-features = false, optional = true }
 native-tls = { version = "0.2.11", optional = true }
 windows-sys = "0.52.0"
+rand = "0.8.5"
 
 [dependencies.freya]
 
