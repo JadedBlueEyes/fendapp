@@ -2,12 +2,16 @@
 
 <!-- next-header -->
 
-## Unreleased changes: Updates
+## Unreleased changes
+
+Full Changelog: [v0.4.1...Unreleased]
+
+## [0.4.1]: Updates - 2024-06-04
 
 - Fix typos
 - Update dependencies
 
-Full Changelog: [v0.4.0...Unreleased]
+Full Changelog: [v0.4.0...v0.4.1]
 
 ## [0.4.0]: Currency conversion - 2024-05-16
 
@@ -77,6 +81,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.4.1]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.1
 [0.4.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.0
 [0.3.2]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.3.2
 [0.3.1]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.3.1
@@ -88,7 +93,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.4.0...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.0...HEAD
+[v0.4.1...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.1...HEAD
+[v0.4.0...v0.4.1]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.0...v0.4.1
 [v0.3.2...v0.4.0]: https://github.com/JadedBlueEyes/fendapp/compare/v0.3.2...v0.4.0
 [v0.3.1...v0.3.2]: https://github.com/JadedBlueEyes/fendapp/compare/v0.3.1...v0.3.2
 [v0.3.0...v0.3.1]: https://github.com/JadedBlueEyes/fendapp/compare/v0.3.0...v0.3.1
