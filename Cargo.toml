@@ -42,7 +42,8 @@ icons = [
 
 [package.metadata.packager.windows]
 
-digest-algorithim = "SHA-256"
+# This is a typo in cargo-packager
+digest-algorithim = "SHA-256" # spellchecker:disable-line
 
 [package.metadata.winresource]
 ProductName = "FendApp"
@@ -100,4 +101,3 @@ default = [ "native-tls" ]
 [profile.release]
 lto = true
 codegen-units = 1
-
