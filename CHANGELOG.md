@@ -1,6 +1,11 @@
+# Changelog
+
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Updates
+
+- Fix typos
+- Update dependencies
 
 Full Changelog: [v0.4.0...Unreleased]
 
@@ -44,7 +49,8 @@ Full Changelog: [v0.1.5...v0.2.0]
 - Fix changelog generation
 
 Previously:
-- More optimized binaries 
+
+- More optimized binaries
 - More download options available
 - Add AppStream metadata
 
@@ -52,7 +58,7 @@ Full Changelog: [v0.1.3...v0.1.5]
 
 ## [0.1.4]: Release tweaks - 2024-04-18
 
-- More optimized binaries 
+- More optimized binaries
 - Add AppStream metadata
 - More download options available
 
@@ -66,12 +72,9 @@ Full Changelog: [v0.1.3...v0.1.4]
 
 Full Changelog: [v0.1.0...v0.1.3]
 
-
 ## [0.1.0]: The MVP - 2024-02-21
 
 This is the minimal working app, without many convenience features.
-
-
 
 <!-- next-release-url -->
 [0.4.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.0
