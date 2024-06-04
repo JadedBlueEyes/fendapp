@@ -22,7 +22,7 @@ license-file = "LICENCE"
 
 
 icons = [
-  "assets/icon.svg",
+  # "assets/icon.svg",
   "assets/icon.png",
   "assets/icon-32x32.png",
   "assets/icon.ico"
