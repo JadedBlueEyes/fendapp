@@ -62,8 +62,12 @@
       <ul>
 <li>Fix changelog generation</li>
 </ul>
-<p>Previously: - More optimized binaries - More download options
-available - Add AppStream metadata</p>
+<p>Previously:</p>
+<ul>
+<li>More optimized binaries</li>
+<li>More download options available</li>
+<li>Add AppStream metadata</li>
+</ul>
 
 </description>
   </release>
