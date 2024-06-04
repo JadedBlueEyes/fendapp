@@ -59,11 +59,11 @@ dioxus = { version = "0.5", default-features = false, features = ["macro", "sign
 dioxus-hooks = { version = "0.5" }
 dioxus-signals = { version = "0.5" }
 
-fend-core = "1.4.1"
+fend-core = "1.4.8"
 home = "0.5.9"
 im-rc = "15.1.0"
 ureq = { version = "2.9.7", default-features = false, optional = true }
-native-tls = { version = "0.2.11", optional = true }
+native-tls = { version = "0.2.12", optional = true }
 windows-sys = "0.52.0"
 rand = "0.8.5"
 
@@ -72,7 +72,7 @@ rand = "0.8.5"
 # git = "https://github.com/marc2332/freya.git"
 # features = ["devtools"]
 # path = "../freya/crates/freya"
-version = "0.2.0"
+version = "0.2.2"
 
 # [dependencies.skia-safe]
 
