@@ -2,7 +2,9 @@
 
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Fix MacOS builds
+
+- Fix MacOS builds
 
 Full Changelog: [v0.4.1...Unreleased]
 
