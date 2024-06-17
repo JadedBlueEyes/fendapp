@@ -43,10 +43,10 @@ jobs:
           path: ~/.cache/pre-commit
           key: pre-commit-3|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
       - name: pre-commit validation
-        run: pre-commit run --show-diff-on-failure --color=always
+        run: pre-commit run --show-diff-on-failure --color=always --from-ref ${{ env.FROM_REF }} --to-ref ${{ env.TO_REF }}
       - name: Formatting
-        run: pre-commit run --show-diff-on-failure --color=always --hook-stage push fmt
+        run: pre-commit run --show-diff-on-failure --color=always --hook-stage push --from-ref ${{ env.FROM_REF }} --to-ref ${{ env.TO_REF }} fmt
       - name: Linting
-        run: pre-commit run --show-diff-on-failure --color=always --hook-stage push clippy
+        run: pre-commit run --show-diff-on-failure --color=always --hook-stage push --from-ref ${{ env.FROM_REF }} --to-ref ${{ env.TO_REF }} clippy
       - name: Tests
-        run: pre-commit run --show-diff-on-failure --color=always --hook-stage push test
+        run: pre-commit run --show-diff-on-failure --color=always --hook-stage push --from-ref ${{ env.FROM_REF }} --to-ref ${{ env.TO_REF }} test
