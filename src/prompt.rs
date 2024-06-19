@@ -1,9 +1,7 @@
-use fend_core::Context;
-use freya::prelude::*;
-// use dioxus::prelude::{ UseRef, use_ref,  Scope };
-
 use dioxus_hooks::{use_memo, use_signal};
 use dioxus_signals::{Readable, Signal, Writable};
+use fend_core::Context;
+use freya::prelude::*;
 
 use crate::timeout::TimeoutInterrupt;
 

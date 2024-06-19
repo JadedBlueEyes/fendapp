@@ -1,5 +1,6 @@
 // Copyright printfn under the terms of the MIT license
-use std::{error, fmt, fs, io::Write, time};
+use std::io::Write;
+use std::{error, fmt, fs, time};
 
 use crate::file_paths;
 type Error = Box<dyn error::Error + Send + Sync + 'static>;

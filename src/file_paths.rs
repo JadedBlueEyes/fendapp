@@ -94,10 +94,9 @@ fn mark_dir_as_hidden(path: &path::Path) {
 #[allow(unsafe_code)]
 fn mark_dir_as_hidden_impl(path: &ffi::OsStr) -> Result<(), u32> {
     use std::os::windows::ffi::OsStrExt;
-    use windows_sys::Win32::{
-        Foundation::GetLastError,
-        Storage::FileSystem::{SetFileAttributesW, FILE_ATTRIBUTE_HIDDEN},
-    };
+
+    use windows_sys::Win32::Foundation::GetLastError;
+    use windows_sys::Win32::Storage::FileSystem::{SetFileAttributesW, FILE_ATTRIBUTE_HIDDEN};
 
     let path = path.encode_wide().chain(Some(0)).collect::<Vec<u16>>();
 

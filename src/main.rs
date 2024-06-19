@@ -3,11 +3,9 @@
     windows_subsystem = "windows"
 )]
 
-use freya::prelude::*;
-// use dioxus::prelude::{ UseRef, use_ref,  Scope };
-
 use dioxus_hooks::use_signal;
 use dioxus_signals::{Readable, Writable};
+use freya::prelude::*;
 
 use crate::prompt::Prompt;
 
