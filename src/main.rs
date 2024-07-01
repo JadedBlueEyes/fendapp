@@ -49,22 +49,27 @@ fn app() -> Element {
         c.set_random_u32_fn(random_u32);
     });
 
-    let execute_prompt = move |data: prompt::SubmitData| {
+    let mut error = use_signal(|| Option::None);
+
+    let execute_prompt = move |mut data: prompt::SubmitData| {
         let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640_u128);
-        let res =
-            context.with_mut(|c| fend_core::evaluate_with_interrupt(&data.prompt, c, &interrupt));
+        let res = context.with_mut(|c| {
+            fend_core::evaluate_with_interrupt(&data.prompt.read().to_string(), c, &interrupt)
+        });
         if let Ok(res) = res {
             history.with_mut(|h| {
                 h.push(HistoryItem {
-                    expression: data.prompt,
+                    expression: data.prompt.read().to_string(),
                     result: res,
                 })
-            })
+            });
+            data.prompt.set(String::new());
+            error.set(None);
         } else if let Err(e) = res {
-            println!("{e}")
+            println!("{e}");
+            error.set(Some(e));
         }
     };
-
     rsx!(
         ThemeProvider {
             theme: DARK_THEME,
@@ -96,6 +101,7 @@ fn app() -> Element {
                     Prompt {
                         context: context,
                         on_submit: execute_prompt,
+                        error
                     },
                 } }
         },

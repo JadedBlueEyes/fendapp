@@ -13,12 +13,16 @@ use crate::timeout::TimeoutInterrupt;
 
 #[derive(Debug)]
 pub(crate) struct SubmitData {
-    pub prompt: String,
+    pub prompt: Signal<String>,
 }
 
 #[allow(non_snake_case)]
 #[component]
-pub(crate) fn Prompt(on_submit: EventHandler<SubmitData>, mut context: Signal<Context>) -> Element {
+pub(crate) fn Prompt(
+    on_submit: EventHandler<SubmitData>,
+    mut context: Signal<Context>,
+    error: Signal<Option<String>>,
+) -> Element {
     let mut prompt = use_signal(String::new);
 
     let preview = use_memo(move || {
@@ -33,9 +37,8 @@ pub(crate) fn Prompt(on_submit: EventHandler<SubmitData>, mut context: Signal<Co
             onkeydown: move |e| {
                 if e.data.key == keyboard::Key::Enter {
                     on_submit.call(SubmitData {
-                        prompt: prompt.read().to_string()
+                        prompt
                     });
-                    prompt.set(String::new());
                 }
             },
             Input {
@@ -51,9 +54,20 @@ pub(crate) fn Prompt(on_submit: EventHandler<SubmitData>, mut context: Signal<Co
                 }
 
             },
-            label {
-                color: "white",
-                "{preview.read().get_main_result()}"
+            if !preview.read().is_unit_type() {
+                label {
+                    color: "white",
+                    "{preview.read().get_main_result()}"
+                }
+            }
+            match error.read().as_ref() {
+                Some(e) => rsx!{
+                    label {
+                        color: "red",
+                        "{e}"
+                    }
+                },
+                None => None,
             }
         },
     )

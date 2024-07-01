@@ -4,6 +4,7 @@
 
 ## Unreleased changes
 
+- Show errors, and no longer clear prompt if the calculation errors
 - Update dependencies
 
 Full Changelog: [v0.4.2...Unreleased]
