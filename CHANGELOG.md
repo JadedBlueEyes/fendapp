@@ -4,6 +4,8 @@
 
 ## Unreleased changes
 
+- Update dependencies
+
 Full Changelog: [v0.4.2...Unreleased]
 
 ## [0.4.2]: Fix MacOS builds - 2024-06-04
