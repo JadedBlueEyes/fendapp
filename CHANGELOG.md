@@ -2,7 +2,7 @@
 
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Error handling
 
 - Show errors, and no longer clear prompt if the calculation errors
 - Update dependencies
