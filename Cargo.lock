@@ -1497,9 +1497,9 @@ dependencies = [
 
 [[package]]
 name = "fend-core"
-version = "1.4.8"
+version = "1.4.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5a96524d35dc3f6fd060a191562a5ae82f69425bb8c1ec94da1709a8865388d4"
+checksum = "09078d60b5387e99317a3ecadd61b5a521deab55186e9dab76d7f0ff66838670"
 
 [[package]]
 name = "fendapp"
