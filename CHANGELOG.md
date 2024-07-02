@@ -2,12 +2,16 @@
 
 <!-- next-header -->
 
-## Unreleased changes: Error handling
+## Unreleased changes
+
+Full Changelog: [v0.4.3...Unreleased]
+
+## [0.4.3]: Error handling - 2024-07-02
 
 - Show errors, and no longer clear prompt if the calculation errors
 - Update dependencies
 
-Full Changelog: [v0.4.2...Unreleased]
+Full Changelog: [v0.4.2...v0.4.3]
 
 ## [0.4.2]: Fix MacOS builds - 2024-06-04
 
@@ -90,6 +94,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.4.3]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.3
 [0.4.2]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.2
 [0.4.1]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.1
 [0.4.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.0
@@ -103,7 +108,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.4.2...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.2...HEAD
+[v0.4.3...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.3...HEAD
+[v0.4.2...v0.4.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.2...v0.4.3
 [v0.4.1...v0.4.2]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.1...v0.4.2
 [v0.4.0...v0.4.1]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.0...v0.4.1
 [v0.3.2...v0.4.0]: https://github.com/JadedBlueEyes/fendapp/compare/v0.3.2...v0.4.0
