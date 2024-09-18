@@ -7,6 +7,7 @@ default_install_hook_types:
 default_stages:
   - pre-commit
   - pre-push
+  - manual
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
@@ -27,11 +28,25 @@ repos:
     rev: v1.1.0
     hooks:
       - id: fmt
+        stages:
+        - pre-commit
+        - pre-push
       - id: cargo-check
+        stages:
+        - pre-commit
+        - pre-push
       - id: clippy
         args: [--all-targets, --all-features, "--", "-D", "warnings"]
+        stages:
+        - pre-commit
+        - pre-push
       - id: build
+        stages:
+        - pre-commit
+        - pre-push
       - id: test
+        stages:
+        - pre-push
   - repo: https://github.com/crate-ci/typos
     rev: v1.22.0
     hooks:
