@@ -1503,6 +1503,7 @@ version = "0.4.3"
 dependencies = [
  "dioxus",
  "dioxus-hooks",
+ "dioxus-sdk",
  "dioxus-signals",
  "fend-core",
  "freya",

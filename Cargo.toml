@@ -66,6 +66,7 @@ ureq = { version = "2.9.7", default-features = false, optional = true }
 native-tls = { version = "0.2.12", optional = true }
 windows-sys = "0.59.0"
 rand = "0.8.5"
+dioxus-sdk = { version = "0.5.0", default-features = false, features = ["clipboard"] }
 
 [dependencies.freya]
 

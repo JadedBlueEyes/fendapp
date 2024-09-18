@@ -4,7 +4,9 @@
 )]
 
 use dioxus_hooks::use_signal;
+use dioxus_sdk::clipboard::use_clipboard;
 use dioxus_signals::{Readable, Writable};
+use fend_core::FendResult;
 use freya::prelude::*;
 
 use crate::prompt::Prompt;
@@ -27,11 +29,96 @@ fn main() {
 
 pub type History = Vec<HistoryItem>;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, PartialEq, Clone)]
 pub struct HistoryItem {
     // pub id: u32,
     pub expression: String,
-    pub result: fend_core::FendResult,
+    pub result: HistoryResult,
+}
+impl From<FendResult> for HistoryResult {
+    fn from(result: FendResult) -> Self {
+        let mut plain_result = String::new();
+        let mut spans = vec![];
+        for span in result.get_main_result_spans() {
+            plain_result.push_str(span.string());
+            spans.push((
+                plain_result.len() - span.string().len()..plain_result.len(),
+                span.kind(),
+            ));
+        }
+        Self {
+            plain_result,
+            spans,
+            is_unit: result.is_unit_type(),
+            attrs: Attrs {
+                trailing_newline: result.has_trailing_newline(),
+            },
+        }
+    }
+}
+
+#[derive(PartialEq, Eq, Debug, Clone)]
+pub struct HistoryResult {
+    plain_result: String,
+    spans: Vec<(std::ops::Range<usize>, fend_core::SpanKind)>,
+    is_unit: bool, // is this the () type
+    attrs: Attrs,
+}
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct SpanRef<'a> {
+    string: &'a str,
+    kind: fend_core::SpanKind,
+}
+
+#[derive(Clone, Copy, Eq, PartialEq, Debug)]
+#[allow(clippy::struct_excessive_bools)]
+pub(crate) struct Attrs {
+    // pub(crate) debug: bool,
+    // pub(crate) show_approx: bool,
+    // pub(crate) plain_number: bool,
+    pub(crate) trailing_newline: bool,
+}
+impl Default for Attrs {
+    fn default() -> Self {
+        Self {
+            // debug: false,
+            // show_approx: true,
+            // plain_number: false,
+            trailing_newline: true,
+        }
+    }
+}
+
+impl HistoryResult {
+    /// This retrieves the main result of the computation.
+    #[must_use]
+    pub fn get_main_result(&self) -> &str {
+        self.plain_result.as_str()
+    }
+
+    /// This retrieves the main result as a list of spans, which is useful
+    /// for colored output.
+    pub fn get_main_result_spans(&self) -> impl Iterator<Item = SpanRef<'_>> {
+        self.spans.iter().map(|(span, kind)| SpanRef {
+            string: &self.plain_result[span.clone()],
+            kind: *kind,
+        })
+    }
+
+    /// Returns whether or not the result is the `()` type. It can sometimes
+    /// be useful to hide these values.
+    #[must_use]
+    pub fn is_unit_type(&self) -> bool {
+        self.is_unit
+    }
+
+    /// Returns whether or not the result should be outputted with a
+    /// trailing newline. This is controlled by the `@no_trailing_newline`
+    /// attribute.
+    #[must_use]
+    pub fn has_trailing_newline(&self) -> bool {
+        self.attrs.trailing_newline
+    }
 }
 
 fn app() -> Element {
@@ -60,7 +147,7 @@ fn app() -> Element {
             history.with_mut(|h| {
                 h.push(HistoryItem {
                     expression: data.prompt.read().to_string(),
-                    result: res,
+                    result: res.into(),
                 })
             });
             data.prompt.set(String::new());
@@ -70,6 +157,10 @@ fn app() -> Element {
             error.set(Some(e));
         }
     };
+
+    let mut clipboard = use_clipboard();
+    let platform = use_platform();
+
     rsx!(
         ThemeProvider {
             theme: DARK_THEME,
@@ -83,15 +174,36 @@ fn app() -> Element {
                     rect {
                         padding: "24 50 0 50",
                         {
-                            history.read().iter().enumerate().map(|(k, v)| rsx!{
+                            history.read().clone().into_iter().enumerate().map(|(k, v)| rsx!{
                             rect {
                                 key: "{k}",
                                 label {
-                                    color: "white",
+                                    color: "#d0d0d0",
+                                    onmouseenter: move |_| {
+                                        platform.set_cursor(CursorIcon::Pointer);
+                                    },
+                                    onmouseleave: move |_| {
+                                        platform.set_cursor(CursorIcon::Default);
+                                    },
+                                    onclick: move |_| {
+                                        let _ = clipboard.set(v.expression.clone());
+                                        // TODO: Notify user that the expression was copied
+                                    },
                                     "{v.expression}"
                                 },
                                 label {
                                     color: "white",
+
+                                    onmouseenter: move |_| {
+                                        platform.set_cursor(CursorIcon::Pointer);
+                                    },
+                                    onmouseleave: move |_| {
+                                        platform.set_cursor(CursorIcon::Default);
+                                    },
+                                    onclick: move |_| {
+                                        let _ = clipboard.set(v.result.get_main_result().to_string());
+                                        // TODO: Notify user that the expression was copied
+                                    },
                                     "= {v.result.get_main_result()}"
                                 },
                             },

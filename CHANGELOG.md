@@ -2,9 +2,12 @@
 
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Copying and colouring
 
 Full Changelog: [v0.4.3...Unreleased]
+
+- Allow copying previous results and expressions by clicking on them
+- Colour the text of the expression slightly lighter
 
 ## [0.4.3]: Error handling - 2024-07-02
 
