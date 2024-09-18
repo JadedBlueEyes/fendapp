@@ -2,9 +2,13 @@
 
 <!-- next-header -->
 
-## Unreleased changes: Copying and colouring
+## Unreleased changes
 
-Full Changelog: [v0.4.3...Unreleased]
+Full Changelog: [v0.4.4...Unreleased]
+
+## [0.4.4]: Copying and colouring - 2024-09-18
+
+Full Changelog: [v0.4.3...v0.4.4]
 
 - Allow copying previous results and expressions by clicking on them
 - Colour the text of the expression slightly lighter
@@ -97,6 +101,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.4.4]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.4
 [0.4.3]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.3
 [0.4.2]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.2
 [0.4.1]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.4.1
@@ -111,7 +116,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.4.3...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.3...HEAD
+[v0.4.4...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.4...HEAD
+[v0.4.3...v0.4.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.3...v0.4.4
 [v0.4.2...v0.4.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.2...v0.4.3
 [v0.4.1...v0.4.2]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.1...v0.4.2
 [v0.4.0...v0.4.1]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.0...v0.4.1
