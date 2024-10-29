@@ -1,5 +1,7 @@
 # Fendapp
 
+[![Chat on Matrix](https://img.shields.io/badge/chat%20on-matrix-white?logo=matrix)](https://matrix.to/#/#fendapp:ellis.link)
+
 FendApp is a calculator for unit-aware calculations across a wide range of domains. It offers various features, including the ability to effortlessly convert between hundreds of built-in units. 
 
 ![Screenshot of FendApp calculating the £/hour from total pay and total hours, and converting it into $/hour](https://github.com/user-attachments/assets/5cd9b993-1a75-4c6d-9e58-87736f52a69f)
