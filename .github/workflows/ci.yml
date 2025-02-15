@@ -63,5 +63,50 @@ jobs:
         with:
           command: clippy
           args: --all-targets --all-features --locked -- -D warnings
+      - run: cargo clippy --all-targets --all-features --locked --message-format=json -- -D warnings  3>&1 2>&1 | tee clippy-${{ matrix.os }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: report-${{ matrix.os }}
+          path: clippy-${{ matrix.os }}.json
+          retention-days: 7
+
       - name: Tests
         run: cargo test
+
+  sonarqube:
+    name: SonarQube
+    runs-on: ubuntu-latest
+    needs: test
+    if: success() || failure()
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          persist-credentials: false
+
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-sonar
+      - name: Download clippy and artifact reports
+        uses: actions/download-artifact@v4
+        id: download
+        with:
+          path: clippy-reports
+          pattern: report-*
+          merge-multiple: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: convert clippy reports
+        run: |
+          mkdir reports
+          for file in clippy-reports/*; do cargo sonar --clippy --clippy-path $file --sonar-path reports/$(basename $file); done
+      - name: list converted files
+        id: files
+        run: echo "reports=$(find reports -name "*.json" | paste -s -d ',' - )" >> $GITHUB_OUTPUT
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectBaseDir=.
+            -Dsonar.externalIssuesReportPaths=${{ steps.files.outputs.reports }}
