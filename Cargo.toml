@@ -71,10 +71,16 @@ dioxus-sdk = { version = "0.6.0", default-features = false, features = ["clipboa
 [dependencies.freya]
 
 # git = "https://github.com/marc2332/freya.git"
-# features = ["devtools"]
+features = ["devtools"]
 # path = "../freya/crates/freya"
 version = "0.3.0-rc.3"
+[dev-dependencies.freya-testing]
 
+version = "0.3.0-rc.3"
+
+[dev-dependencies.tokio]
+version = "1.44.1"
+features = ["full"]
 # [dependencies.skia-safe]
 
 # version = "0.67.0"

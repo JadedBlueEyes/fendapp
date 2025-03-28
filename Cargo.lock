@@ -505,7 +505,7 @@ dependencies = [
  "bitflags 2.9.0",
  "cexpr",
  "clang-sys",
- "itertools 0.12.1",
+ "itertools 0.13.0",
  "log",
  "prettyplease",
  "proc-macro2",
@@ -1319,6 +1319,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "dioxus-radio"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "20be50737ae4d15bb73c0dbda847f2e78cc5fe1491f7a127c3dc841c0e450f2c"
+dependencies = [
+ "dioxus-lib",
+ "generational-box",
+ "warnings",
+]
+
+[[package]]
 name = "dioxus-router"
 version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1665,10 +1676,12 @@ dependencies = [
  "dioxus-signals",
  "fend-core",
  "freya",
+ "freya-testing",
  "home",
  "im-rc",
  "native-tls",
  "rand 0.9.0",
+ "tokio",
  "ureq",
  "windows-sys 0.59.0",
  "winresource",
@@ -1766,6 +1779,7 @@ dependencies = [
  "dioxus-signals",
  "freya-components",
  "freya-core",
+ "freya-devtools",
  "freya-elements",
  "freya-engine",
  "freya-hooks",
@@ -1821,6 +1835,28 @@ dependencies = [
  "tracing",
  "uuid",
  "winit",
+]
+
+[[package]]
+name = "freya-devtools"
+version = "0.3.0-rc.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "41a915be84d891404011fff68be54e84c5890352b4d8ddf0572675199466086c"
+dependencies = [
+ "accesskit",
+ "dioxus",
+ "dioxus-radio",
+ "dioxus-router",
+ "freya-components",
+ "freya-core",
+ "freya-elements",
+ "freya-engine",
+ "freya-hooks",
+ "freya-native-core",
+ "freya-winit",
+ "serde_json",
+ "tokio",
+ "torin",
 ]
 
 [[package]]
@@ -1893,6 +1929,28 @@ checksum = "8e875cf5b9b5d47560f8589c757cbcd736ad7ea098c46476daba1f785c975e0c"
 dependencies = [
  "quote",
  "syn 2.0.100",
+]
+
+[[package]]
+name = "freya-testing"
+version = "0.3.0-rc.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a7e8ac2880dd5bc07b28f05dc252018f936320239415c7cefb89506d4977064d"
+dependencies = [
+ "accesskit",
+ "dioxus",
+ "dioxus-core",
+ "dioxus-core-macro",
+ "dioxus-signals",
+ "freya-components",
+ "freya-core",
+ "freya-elements",
+ "freya-engine",
+ "freya-hooks",
+ "freya-native-core",
+ "tokio",
+ "torin",
+ "winit",
 ]
 
 [[package]]
@@ -4808,7 +4866,9 @@ dependencies = [
  "bytes",
  "libc",
  "mio",
+ "parking_lot",
  "pin-project-lite",
+ "signal-hook-registry",
  "socket2",
  "tokio-macros",
  "windows-sys 0.52.0",

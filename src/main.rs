@@ -223,3 +223,38 @@ fn app() -> Element {
 fn random_u32() -> u32 {
     rand::random()
 }
+
+#[cfg(test)]
+mod test {
+
+    #[tokio::test]
+    async fn integration() {
+        use freya_testing::prelude::*;
+        let mut utils = launch_test(super::app);
+
+        let rect = utils.root().get(0).get(0).get(0).get(0);
+
+        utils.wait_for_update().await;
+        assert_eq!(rect.children_ids().len(), 2);
+
+        let input = rect.get(1).get(0);
+        for (text, key) in [
+            ("1", Code::Digit1),
+            ("+", Code::NumpadAdd),
+            ("3", Code::Digit3),
+        ] {
+            utils.push_event(TestEvent::Keyboard {
+                name: EventName::KeyDown,
+                key: Key::Character(text.into()),
+                code: key,
+                modifiers: Modifiers::default(),
+            });
+            utils.wait_for_update().await;
+        }
+
+        input.get_by_text("1+3").expect("input worked");
+        utils.wait_for_update().await;
+        let preview_label = rect.get(1).get(1);
+        preview_label.get_by_text("4").expect("preview worked");
+    }
+}
