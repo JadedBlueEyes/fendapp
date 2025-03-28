@@ -20,10 +20,10 @@ const ICON: &[u8] = include_bytes!("../assets/icon.png");
 fn main() {
     launch_cfg(
         app,
-        LaunchConfig::<()>::builder()
+        LaunchConfig::<()>::new()
             .with_title("FendApp")
             .with_icon(LaunchConfig::load_icon(ICON))
-            .build(),
+            .with_size(500.0, 600.0),
     )
 }
 

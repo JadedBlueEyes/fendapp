@@ -44,15 +44,15 @@ pub(crate) fn Prompt(
             Input {
                 mode: InputMode::Shown,
                 value: prompt.read().clone(),
+                auto_focus: true,
                 // width: "100%",
                 onchange: move |e| {
                     prompt.set(e)
                 },
-                theme: InputThemeWith {
-                    width: Some("100%".into()),
+                width: "100%",theme: InputThemeWith {
+                    margin: Some("8 0".into()),
                     ..Default::default()
                 }
-
             },
             if !preview.read().is_unit_type() {
                 label {
@@ -67,7 +67,7 @@ pub(crate) fn Prompt(
                         "{e}"
                     }
                 },
-                None => None,
+                None => rsx!{},
             }
         },
     )

@@ -56,9 +56,17 @@ fn store_cached_data(source: ExchangeRateSource, xml: &str) -> Result<(), Error>
 
 #[cfg(feature = "native-tls")]
 fn ureq_get(url: &str) -> Result<String, Error> {
-    let tls_connector = std::sync::Arc::new(native_tls::TlsConnector::new()?);
-    let agent = ureq::builder().tls_connector(tls_connector).build();
-    Ok(agent.get(url).call()?.into_string()?)
+    let config = ureq::config::Config::builder()
+        .tls_config(
+            ureq::tls::TlsConfig::builder()
+                // requires the native-tls feature
+                .provider(ureq::tls::TlsProvider::NativeTls)
+                .build(),
+        )
+        .build();
+
+    let agent = config.new_agent();
+    Ok(agent.get(url).call()?.body_mut().read_to_string()?)
 }
 
 #[cfg(all(feature = "rustls", not(feature = "native-tls")))]
