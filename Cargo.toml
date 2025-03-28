@@ -64,7 +64,7 @@ home = "0.5.11"
 im-rc = "15.1.0"
 ureq = { version = "3.0.10", default-features = false, optional = true }
 native-tls = { version = "0.2.14", optional = true }
-windows-sys = "0.59.0"
+windows-sys = { version = "0.59.0", features = ["Win32_Storage"] }
 rand = "0.9.0"
 dioxus-sdk = { version = "0.6.0", default-features = false, features = ["clipboard"] }
 

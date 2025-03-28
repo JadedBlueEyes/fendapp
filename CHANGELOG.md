@@ -4,9 +4,13 @@
 
 ## Unreleased changes
 
+- Fix windows builds
+
 Full Changelog: [v0.5.0...Unreleased]
 
 ## [0.5.0] - 2025-03-28
+
+- Upgrade dependencies
 
 Full Changelog: [v0.4.4...v0.5.0]
 
