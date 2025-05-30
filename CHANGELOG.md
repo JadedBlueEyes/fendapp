@@ -4,6 +4,8 @@
 
 ## Unreleased changes
 
+- Dependency upgrades
+
 Full Changelog: [v0.5.1...Unreleased]
 
 ## [0.5.1] - 2025-03-28
