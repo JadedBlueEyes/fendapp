@@ -60,7 +60,7 @@ impl From<FendResult> for HistoryResult {
         Self {
             plain_result,
             spans,
-            is_unit: result.is_unit_type(),
+            is_empty: result.output_is_empty(),
             attrs: Attrs {
                 trailing_newline: result.has_trailing_newline(),
             },
@@ -72,7 +72,7 @@ impl From<FendResult> for HistoryResult {
 pub struct HistoryResult {
     plain_result: String,
     spans: Vec<(std::ops::Range<usize>, fend_core::SpanKind)>,
-    is_unit: bool, // is this the () type
+    is_empty: bool, // is this the () type
     attrs: Attrs,
 }
 #[derive(Clone, Debug, PartialEq, Eq)]
@@ -120,7 +120,7 @@ impl HistoryResult {
     /// be useful to hide these values.
     #[must_use]
     pub fn is_unit_type(&self) -> bool {
-        self.is_unit
+        self.is_empty
     }
 
     /// Returns whether or not the result should be outputted with a
@@ -143,7 +143,7 @@ fn app() -> Element {
     let mut context = use_signal(fend_core::Context::new);
     context.with_mut(|c| {
         let rates = exchange_rates.read();
-        c.set_exchange_rate_handler_v1(*rates);
+        c.set_exchange_rate_handler_v2(*rates);
         c.set_random_u32_fn(random_u32);
     });
 

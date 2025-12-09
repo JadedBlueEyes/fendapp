@@ -222,13 +222,17 @@ pub struct ExchangeRateHandler {
     pub source: ExchangeRateSource,
 }
 
-impl fend_core::ExchangeRateFn for ExchangeRateHandler {
+impl fend_core::ExchangeRateFnV2 for ExchangeRateHandler {
     fn relative_to_base_currency(
         &self,
         currency: &str,
+        options: &fend_core::ExchangeRateFnV2Options,
     ) -> Result<f64, Box<dyn std::error::Error + Send + Sync + 'static>> {
         if !self.enable_internet_access {
             return Err(InternetAccessDisabledError.into());
+        }
+        if options.is_preview() {
+            return Err(ExchangeRateSourceDisabledError.into());
         }
         let exchange_rates = get_exchange_rates(self.source)?;
         for (c, rate) in exchange_rates {

@@ -54,7 +54,7 @@ pub(crate) fn Prompt(
                     ..Default::default()
                 }
             },
-            if !preview.read().is_unit_type() {
+            if !preview.read().output_is_empty() {
                 label {
                     color: "white",
                     "{preview.read().get_main_result()}"
