@@ -42,8 +42,7 @@ icons = [
 
 [package.metadata.packager.windows]
 
-# This is a typo in cargo-packager
-digest-algorithim = "SHA-256" # spellchecker:disable-line
+digest-algorithm = "SHA-256"
 
 [package.metadata.winresource]
 ProductName = "FendApp"
