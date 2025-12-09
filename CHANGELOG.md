@@ -2,7 +2,9 @@
 
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Light mode
+
+- Add support for light mode, automatically selected from the system theme
 
 Full Changelog: [v0.5.3...Unreleased]
 
