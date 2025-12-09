@@ -2,11 +2,15 @@
 
 <!-- next-header -->
 
-## Unreleased changes: Light mode
+## Unreleased changes
+
+Full Changelog: [v0.5.4...Unreleased]
+
+## [0.5.4]: Light mode - 2025-12-09
 
 - Add support for light mode, automatically selected from the system theme
 
-Full Changelog: [v0.5.3...Unreleased]
+Full Changelog: [v0.5.3...v0.5.4]
 
 ## [0.5.3]: Crash Reporting - 2025-12-09
 
@@ -128,6 +132,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.5.4]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.4
 [0.5.3]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.3
 [0.5.2]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.2
 [0.5.1]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.1
@@ -147,7 +152,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.5.3...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.3...HEAD
+[v0.5.4...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.4...HEAD
+[v0.5.3...v0.5.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.3...v0.5.4
 [v0.5.2...v0.5.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.2...v0.5.3
 [v0.5.1...v0.5.2]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.1...v0.5.2
 [v0.5.0...v0.5.1]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.0...v0.5.1
