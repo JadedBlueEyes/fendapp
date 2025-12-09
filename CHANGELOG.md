@@ -2,7 +2,10 @@
 
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Crash Reporting
+
+- Add crash reporting
+- Dependency upgrades
 
 Full Changelog: [v0.5.2...Unreleased]
 
