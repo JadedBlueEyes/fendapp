@@ -2,12 +2,16 @@
 
 <!-- next-header -->
 
-## Unreleased changes: Crash Reporting
+## Unreleased changes
+
+Full Changelog: [v0.5.3...Unreleased]
+
+## [0.5.3]: Crash Reporting - 2025-12-09
 
 - Add crash reporting
 - Dependency upgrades
 
-Full Changelog: [v0.5.2...Unreleased]
+Full Changelog: [v0.5.2...v0.5.3]
 
 ## [0.5.2] - 2025-05-30
 
@@ -122,6 +126,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.5.3]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.3
 [0.5.2]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.2
 [0.5.1]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.1
 [0.5.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.0
@@ -140,7 +145,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.5.2...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.2...HEAD
+[v0.5.3...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.3...HEAD
+[v0.5.2...v0.5.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.2...v0.5.3
 [v0.5.1...v0.5.2]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.1...v0.5.2
 [v0.5.0...v0.5.1]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.0...v0.5.1
 [v0.4.4...v0.5.0]: https://github.com/JadedBlueEyes/fendapp/compare/v0.4.4...v0.5.0
