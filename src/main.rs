@@ -3,7 +3,7 @@
     windows_subsystem = "windows"
 )]
 
-use dioxus_hooks::use_signal;
+use dioxus_hooks::{use_effect, use_signal};
 use dioxus_sdk::clipboard::use_clipboard;
 use dioxus_signals::{Readable, Writable};
 use fend_core::FendResult;
@@ -132,6 +132,13 @@ impl HistoryResult {
     }
 }
 
+fn get_theme(preferred_theme: PreferredTheme) -> Theme {
+    match preferred_theme {
+        PreferredTheme::Dark => DARK_THEME,
+        PreferredTheme::Light => LIGHT_THEME,
+    }
+}
+
 fn app() -> Element {
     let mut history = use_signal(History::default);
 
@@ -148,6 +155,31 @@ fn app() -> Element {
     });
 
     let mut error = use_signal(|| Option::None);
+
+    // Theme handling
+    let preferred_theme = use_preferred_theme();
+    let mut current_theme = use_init_theme(|| get_theme(*preferred_theme.peek()));
+
+    use_effect(move || {
+        let theme = get_theme(preferred_theme());
+        if theme != *current_theme.peek() {
+            current_theme.set(theme);
+        }
+    });
+
+    let is_dark = current_theme.read().name == "dark";
+    let background_color = if is_dark {
+        "rgb(15, 15, 15)"
+    } else {
+        "rgb(255, 255, 255)"
+    };
+    let text_color = if is_dark { "#d0d0d0" } else { "#2f2f2f" };
+    let result_color = if is_dark { "white" } else { "black" };
+    let input_background = if is_dark {
+        "rgb(25, 25, 25)"
+    } else {
+        "rgb(245, 245, 245)"
+    };
 
     let execute_prompt = move |mut data: prompt::SubmitData| {
         let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640_u128);
@@ -174,9 +206,9 @@ fn app() -> Element {
 
     rsx!(
         ThemeProvider {
-            theme: DARK_THEME,
+            theme: current_theme.read().clone(),
             rect {
-                background: "rgb(15, 15, 15)",
+                background: "{background_color}",
                 width: "100%",
                 height: "auto",
                 ScrollView {
@@ -189,7 +221,7 @@ fn app() -> Element {
                             rect {
                                 key: "{k}",
                                 label {
-                                    color: "#d0d0d0",
+                                    color: "{text_color}",
                                     onmouseenter: move |_| {
                                         platform.set_cursor(CursorIcon::Pointer);
                                     },
@@ -203,7 +235,7 @@ fn app() -> Element {
                                     "{v.expression}"
                                 },
                                 label {
-                                    color: "white",
+                                    color: "{result_color}",
 
                                     onmouseenter: move |_| {
                                         platform.set_cursor(CursorIcon::Pointer);
@@ -224,7 +256,10 @@ fn app() -> Element {
                     Prompt {
                         context: context,
                         on_submit: execute_prompt,
-                        error
+                        error,
+                        preview_color: result_color.to_string(),
+                        error_color: "red".to_string(),
+                        input_background: input_background.to_string(),
                     },
                 } }
         },

@@ -22,6 +22,9 @@ pub(crate) fn Prompt(
     on_submit: EventHandler<SubmitData>,
     mut context: Signal<Context>,
     error: Signal<Option<String>>,
+    preview_color: String,
+    error_color: String,
+    input_background: String,
 ) -> Element {
     let mut prompt = use_signal(String::new);
 
@@ -51,19 +54,23 @@ pub(crate) fn Prompt(
                 },
                 width: "100%",theme: InputThemeWith {
                     margin: Some("8 0".into()),
+                    background: Some(input_background.clone().into()),
+                    font_theme: Some(FontThemeWith {
+                        color: Some(preview_color.clone().into()),
+                    }),
                     ..Default::default()
                 }
             },
             if !preview.read().output_is_empty() {
                 label {
-                    color: "white",
+                    color: "{preview_color}",
                     "{preview.read().get_main_result()}"
                 }
             }
             match error.read().as_ref() {
                 Some(e) => rsx!{
                     label {
-                        color: "red",
+                        color: "{error_color}",
                         "{e}"
                     }
                 },
