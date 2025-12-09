@@ -19,12 +19,15 @@ mod timeout;
 const ICON: &[u8] = include_bytes!("../assets/icon.png");
 
 fn main() {
-    let _guard = sentry::init(("https://a1c9c9b6cf52b493705e9c73b3310292@relay.ellis.link/4510506397007952", sentry::ClientOptions {
-      release: sentry::release_name!(),
-      auto_session_tracking: true,
-      session_mode: sentry::SessionMode::Application,
-      ..Default::default()
-    }));
+    let _guard = sentry::init((
+        "https://a1c9c9b6cf52b493705e9c73b3310292@relay.ellis.link/4510506397007952",
+        sentry::ClientOptions {
+            release: sentry::release_name!(),
+            auto_session_tracking: true,
+            session_mode: sentry::SessionMode::Application,
+            ..Default::default()
+        },
+    ));
 
     launch_cfg(
         app,
