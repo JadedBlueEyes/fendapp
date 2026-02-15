@@ -2,11 +2,15 @@
 
 <!-- next-header -->
 
-## Unreleased changes: Dependency updates
+## Unreleased changes
+
+Full Changelog: [v0.5.5...Unreleased]
+
+## [0.5.5]: Dependency updates - 2026-02-15
 
 - Upgrade dependencies 
 
-Full Changelog: [v0.5.4...Unreleased]
+Full Changelog: [v0.5.4...v0.5.5]
 
 ## [0.5.4]: Light mode - 2025-12-09
 
@@ -134,6 +138,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.5.5]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.5
 [0.5.4]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.4
 [0.5.3]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.3
 [0.5.2]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.2
@@ -154,7 +159,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.5.4...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.4...HEAD
+[v0.5.5...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.5...HEAD
+[v0.5.4...v0.5.5]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.4...v0.5.5
 [v0.5.3...v0.5.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.3...v0.5.4
 [v0.5.2...v0.5.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.2...v0.5.3
 [v0.5.1...v0.5.2]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.1...v0.5.2
