@@ -2,7 +2,9 @@
 
 <!-- next-header -->
 
-## Unreleased changes
+## Unreleased changes: Dependency updates
+
+- Upgrade dependencies 
 
 Full Changelog: [v0.5.4...Unreleased]
 
