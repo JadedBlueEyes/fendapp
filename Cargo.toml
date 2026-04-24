@@ -64,7 +64,7 @@ im-rc = "15.1.0"
 ureq = { version = "3.1.4", default-features = false, optional = true }
 native-tls = { version = "0.2.14", optional = true }
 windows-sys = { version = "0.59.0", features = ["Win32_Storage", "Win32_Storage_FileSystem"] }
-rand = "0.9.2"
+rand = "0.9.3"
 dioxus-sdk = { version = "0.6.0", default-features = false, features = ["clipboard"] }
 sentry = { version = "0.46.0", default-features = false, features = ["backtrace", "contexts", "debug-images", "panic", "release-health", "transport", "anyhow", "reqwest"] }
 
