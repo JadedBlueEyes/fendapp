@@ -4,6 +4,8 @@
 
 ## Unreleased changes
 
+- Fix a bug preventing debug information from being uploaded in CI
+
 Full Changelog: [v0.5.6...Unreleased]
 
 ## [0.5.6] - 2026-08-03
