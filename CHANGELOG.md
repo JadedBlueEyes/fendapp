@@ -4,11 +4,15 @@
 
 ## Unreleased changes
 
+Full Changelog: [v0.5.6...Unreleased]
+
+## [0.5.6] - 2026-08-03
+
 
 - Add clear command to reset history 
 - Upgrade dependencies 
 
-Full Changelog: [v0.5.5...Unreleased]
+Full Changelog: [v0.5.5...v0.5.6]
 
 ## [0.5.5]: Dependency updates - 2026-02-15
 
@@ -142,6 +146,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.5.6]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.6
 [0.5.5]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.5
 [0.5.4]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.4
 [0.5.3]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.3
@@ -163,7 +168,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.5.5...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.5...HEAD
+[v0.5.6...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.6...HEAD
+[v0.5.5...v0.5.6]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.5...v0.5.6
 [v0.5.4...v0.5.5]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.4...v0.5.5
 [v0.5.3...v0.5.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.3...v0.5.4
 [v0.5.2...v0.5.3]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.2...v0.5.3
