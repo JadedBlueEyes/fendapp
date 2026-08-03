@@ -1,6 +1,6 @@
 [package]
 name = "fendapp"
-version = "0.5.7"
+version = "0.5.8"
 edition = "2021"
 repository = "https://github.com/JadedBlueEyes/fendapp/"
 authors = ["Jade Ellis <jade@ellis.link>"]
