@@ -4,9 +4,13 @@
 
 ## Unreleased changes
 
+Full Changelog: [v0.5.7...Unreleased]
+
+## [0.5.7] - 2026-08-03
+
 - Fix a bug preventing debug information from being uploaded in CI
 
-Full Changelog: [v0.5.6...Unreleased]
+Full Changelog: [v0.5.6...v0.5.7]
 
 ## [0.5.6] - 2026-08-03
 
@@ -148,6 +152,7 @@ Full Changelog: [v0.1.0...v0.1.3]
 This is the minimal working app, without many convenience features.
 
 <!-- next-release-url -->
+[0.5.7]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.7
 [0.5.6]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.6
 [0.5.5]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.5
 [0.5.4]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.5.4
@@ -170,7 +175,8 @@ This is the minimal working app, without many convenience features.
 [0.1.0]: https://github.com/JadedBlueEyes/fendapp/releases/tag/v0.1.0
 
 <!-- next-compare-url -->
-[v0.5.6...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.6...HEAD
+[v0.5.7...Unreleased]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.7...HEAD
+[v0.5.6...v0.5.7]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.6...v0.5.7
 [v0.5.5...v0.5.6]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.5...v0.5.6
 [v0.5.4...v0.5.5]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.4...v0.5.5
 [v0.5.3...v0.5.4]: https://github.com/JadedBlueEyes/fendapp/compare/v0.5.3...v0.5.4
