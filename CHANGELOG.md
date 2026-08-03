@@ -4,6 +4,10 @@
 
 ## Unreleased changes
 
+
+- Add clear command to reset history 
+- Upgrade dependencies 
+
 Full Changelog: [v0.5.5...Unreleased]
 
 ## [0.5.5]: Dependency updates - 2026-02-15
