@@ -181,22 +181,34 @@ fn app() -> Element {
 
     let execute_prompt = move |mut data: prompt::SubmitData| {
         let interrupt = timeout::TimeoutInterrupt::new_with_timeout(640_u128);
-        let res = context.with_mut(|c| {
-            fend_core::evaluate_with_interrupt(&data.prompt.read().to_string(), c, &interrupt)
-        });
-        if let Ok(res) = res {
-            history.with_mut(|h| {
-                h.push(HistoryItem {
-                    expression: data.prompt.read().to_string(),
-                    result: res.into(),
-                })
-            });
-            data.prompt.set(String::new());
-            error.set(None);
-        } else if let Err(e) = res {
-            println!("{e}");
-            error.set(Some(e));
-        }
+        let prompt = data.prompt.read().to_string();
+        match prompt.as_str() {
+            "clear" | "clear()" | ":clear" => {
+                history.with_mut(|h| {
+                    h.clear();
+                });
+
+                data.prompt.set(String::new());
+                error.set(None);
+            }
+            l => {
+                let res =
+                    context.with_mut(|c| fend_core::evaluate_with_interrupt(l, c, &interrupt));
+                if let Ok(res) = res {
+                    history.with_mut(|h| {
+                        h.push(HistoryItem {
+                            expression: prompt,
+                            result: res.into(),
+                        })
+                    });
+                    data.prompt.set(String::new());
+                    error.set(None);
+                } else if let Err(e) = res {
+                    println!("{e}");
+                    error.set(Some(e));
+                }
+            }
+        };
     };
 
     let mut clipboard = use_clipboard();
