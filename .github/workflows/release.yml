@@ -60,3 +60,13 @@ jobs:
           file_glob: true
           file: release-artifacts/*
           tag: ${{ github.ref }}
+      - run: REF=${{ github.ref_type == 'tag' && github.ref_name || github.sha }}; echo "VERSION=${REF#v}" >> $GITHUB_ENV
+      - name: Create Sentry release
+        uses: getsentry/action-release@v3
+        env:
+            SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+            SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+            SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        with:
+            environment: production
+            release: ${{ env.VERSION }}
