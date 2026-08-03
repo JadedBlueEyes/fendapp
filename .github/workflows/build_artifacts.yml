@@ -45,7 +45,26 @@ jobs:
             CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY_PASSWORD }}
             CARGO_PACKAGER_SIGN_PRIVATE_KEY: ${{ secrets.CARGO_PACKAGER_SIGN_PRIVATE_KEY }}
         run: nu scripts/build_release_artifacts.nu artifacts
-
+      - name: Upload Sentry debug symbols
+        shell: bash
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+          SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+        run: |
+          if [ -z "$SENTRY_AUTH_TOKEN" ] || [ -z "$SENTRY_PROJECT" ]; then
+            echo "::warning::SENTRY_AUTH_TOKEN/SENTRY_PROJECT not configured — skipping debug-files upload"
+            exit 0
+          fi
+          npm install -g @sentry/cli
+          if [ -d "target/release" ]; then
+            TARGET_DIR="target/release"
+          else
+            echo "::warning::No release directory found — skipping"
+            exit 0
+          fi
+          echo "Uploading debug files from $TARGET_DIR"
+          sentry-cli debug-files upload --include-sources "$TARGET_DIR"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }}-release
