@@ -8,6 +8,12 @@ on:
         required: true
       CARGO_PACKAGER_SIGN_PRIVATE_KEY:
         required: true
+      SENTRY_AUTH_TOKEN:
+        required: false
+      SENTRY_ORG:
+        required: false
+      SENTRY_PROJECT:
+        required: false
 
 
 env:
